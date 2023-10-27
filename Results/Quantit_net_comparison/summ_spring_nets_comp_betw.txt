@@ -1,0 +1,105 @@
+
+Comparison of Network Properties
+----------------------------------
+CALL: 
+netCompare(x = props_spring_nets, permTest = FALSE, verbose = FALSE, 
+    seed = 123)
+
+______________________________
+Global network properties
+`````````````````````````
+Largest connected component (LCC):
+                         Forest   Pasture    difference
+Relative LCC size         0.235     0.395         0.160
+Clustering coefficient    0.524     0.492         0.033
+Modularity                0.685     0.711         0.026
+Positive edge percentage 97.701    90.854         6.847
+Edge density              0.080     0.053         0.027
+Natural connectivity      0.029     0.017         0.011
+Vertex connectivity       1.000     1.000         0.000
+Edge connectivity         1.000     1.000         0.000
+Average dissimilarity*    0.681     0.687         0.006
+Average path length**     6.018     6.960         0.942
+
+Whole network:
+                          Forest   Pasture    difference
+Number of components     106.000   110.000         4.000
+Clustering coefficient     0.526     0.556         0.031
+Modularity                 0.793     0.772         0.022
+Positive edge percentage  97.814    90.811         7.003
+Edge density               0.009     0.009         0.000
+Natural connectivity       0.006     0.006         0.000
+-----
+ *: Dissimilarity = 1 - edge weight
+**: Path length = Units with average dissimilarity
+
+______________________________
+Jaccard index (similarity betw. sets of most central nodes)
+```````````````````````````````````````````````````````````
+                    Jacc   P(<=Jacc)     P(>=Jacc)   
+degree             0.065    0.000462 ***  0.999943   
+betweenness centr. 0.048    0.002306 **   0.999800   
+closeness centr.   0.031    0.000039 ***  0.999998   
+eigenvec. centr.   0.029    0.000013 ***  0.999999   
+hub taxa           0.000    0.197531      1.000000   
+-----
+Jaccard index in [0,1] (1 indicates perfect agreement)
+
+______________________________
+Adjusted Rand index (similarity betw. clusterings)
+``````````````````````````````````````````````````
+        wholeNet       LCC
+ARI        0.036     0.015
+p-value    0.285     0.496
+-----
+ARI in [-1,1] with ARI=1: perfect agreement betw. clusterings
+                   ARI=0: expected for two random clusterings
+p-value: permutation test (n=1000) with null hypothesis ARI=0
+
+______________________________
+Graphlet Correlation Distance
+`````````````````````````````
+    wholeNet       LCC
+GCD    1.681     2.263
+-----
+GCD >= 0 (GCD=0 indicates perfect agreement between GCMs)
+
+______________________________
+Centrality measures
+- In decreasing order
+- Centrality of disconnected components is zero
+````````````````````````````````````````````````
+Degree (normalized):
+                               Forest Pasture abs.diff.
+Verrucomicrobia_subdivision_31      0   0.055     0.055
+Opitutaceae                         0   0.050     0.050
+Rhodocyclaceae                      0   0.050     0.050
+Propionibacteriaceae                0   0.045     0.045
+Paludibacteraceae                   0   0.045     0.045
+
+Betweenness centrality (normalized):
+                    Forest Pasture abs.diff.
+Prolixibacteraceae   0.608     0.0     0.608
+Desulfuromonadaceae  0.501     0.0     0.501
+Syntrophaceae        0.395     0.0     0.395
+Sterolibacteriaceae  0.487     0.1     0.387
+Rhabdochlamydiaceae  0.383     0.0     0.383
+
+Closeness centrality (normalized):
+                    Forest Pasture abs.diff.
+Prolixibacteraceae   0.386   0.000     0.386
+Desulfobacteraceae   0.386   0.000     0.386
+Syntrophorhabdaceae  0.329   0.000     0.329
+Rhabdochlamydiaceae  0.325   0.000     0.325
+Rhodocyclaceae       0.000   0.322     0.322
+
+Eigenvector centrality (normalized):
+                     Forest Pasture abs.diff.
+Paludibacteraceae         0       1         1
+Enterobacteriaceae        1       0         1
+Prolixibacteraceae        1       0         1
+Propionibacteriaceae      0       1         1
+Acidobacteriaceae4        0       1         1
+
+_________________________________________________________
+Significance codes: ***: 0.001, **: 0.01, *: 0.05, .: 0.1

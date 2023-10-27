@@ -1,0 +1,122 @@
+
+Component sizes
+```````````````
+Forest:              
+size: 37 3   1
+   #:  1 2 157
+Pasture:                 
+size: 29 24 3   1
+   #:  1  1 1 144
+______________________________
+Global network properties
+`````````````````````````
+Largest connected component (LCC):
+                          Forest Pasture
+Relative LCC size          0.185   0.145
+Clustering coefficient     0.572   0.567
+Modularity                 0.459   0.431
+Positive edge percentage 100.000  33.962
+Edge density               0.156   0.131
+Natural connectivity       0.056   0.051
+Vertex connectivity        1.000   1.000
+Edge connectivity          1.000   1.000
+Average dissimilarity*     0.609   0.735
+Average path length**      3.204   2.780
+
+Whole network:
+                          Forest Pasture
+Number of components     160.000 147.000
+Clustering coefficient     0.538   0.614
+Modularity                 0.492   0.642
+Positive edge percentage 100.000  69.027
+Edge density               0.005   0.006
+Natural connectivity       0.006   0.006
+-----
+*: Dissimilarity = 1 - edge weight
+**: Path length = Units with average dissimilarity
+
+______________________________
+Clusters
+- In the whole network
+- Algorithm: cluster_fast_greedy
+```````````````````````````````` 
+Forest:                      
+name:   0  1  2  3 4 5
+   #: 157 13 10 14 3 3
+
+Pasture:                       
+name:   0  1  2 3 4 5 6
+   #: 144 17 12 8 7 9 3
+
+______________________________
+Hubs
+- In alphabetical/numerical order
+- Based on log-normal quantiles of centralities
+```````````````````````````````````````````````
+            Forest             Pasture
+   Anaerolineaceae   Chitinophagaceae1
+ Nitrosomonadaceae  Hyphomicrobiaceae1
+                     Paenibacillaceae1
+                         Polyangiaceae
+                   Steroidobacteraceae
+
+______________________________
+Centrality measures
+- In decreasing order
+- Computed for the complete network
+````````````````````````````````````
+Degree (normalized):
+                     Forest Pasture
+     Anaerolineaceae   0.06   0.025
+   Nitrosomonadaceae  0.055    0.01
+      Planococcaceae   0.05       0
+   Acidimicrobiaceae   0.05       0
+   Lentimicrobiaceae   0.05       0
+                     ______  ______
+       Polyangiaceae  0.025   0.065
+   Chitinophagaceae1  0.005   0.045
+  Hyphomicrobiaceae1   0.03   0.045
+ Steroidobacteraceae      0   0.045
+   Paenibacillaceae1      0   0.045
+
+Betweenness centrality (normalized):
+                    Forest Pasture
+       Nocardiaceae  0.013       0
+  Nitrosomonadaceae  0.008       0
+     Isosphaeraceae  0.007       0
+    Anaerolineaceae  0.007   0.005
+     Geobacteraceae  0.007       0
+                    ______  ______
+      Polyangiaceae  0.002   0.012
+  Chitinophagaceae1      0    0.01
+ Hyphomicrobiaceae1  0.001   0.007
+    Anaerolineaceae  0.007   0.005
+  Paenibacillaceae1      0   0.004
+
+Closeness centrality (normalized):
+                    Forest Pasture
+    Anaerolineaceae  0.101   0.069
+  Nitrosomonadaceae  0.101   0.058
+       Nocardiaceae  0.097   0.073
+   Spirochaetaceae1  0.093       0
+  Lentimicrobiaceae  0.091       0
+                    ______  ______
+  Chitinophagaceae1  0.059   0.086
+ Pseudonocardiaceae      0   0.085
+ Hyphomicrobiaceae1  0.081   0.084
+         Thermaceae      0   0.083
+   Halanaerobiaceae      0   0.083
+
+Eigenvector centrality (normalized):
+                                Forest Pasture
+                Anaerolineaceae      1   0.049
+              Lentimicrobiaceae  0.911       0
+               Methylocystaceae  0.911       0
+          Peptostreptococcaceae  0.911       0
+ Verrucomicrobia_subdivision_33  0.911       0
+                                ______  ______
+             Pseudonocardiaceae      0       1
+                     Thermaceae      0   0.975
+               Halanaerobiaceae      0   0.975
+              Chitinophagaceae1  0.002   0.858
+                   Nocardiaceae  0.108   0.836

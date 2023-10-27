@@ -1,0 +1,105 @@
+
+Comparison of Network Properties
+----------------------------------
+CALL: 
+netCompare(x = props_cclasso_nets, permTest = FALSE, verbose = FALSE, 
+    seed = 123)
+
+______________________________
+Global network properties
+`````````````````````````
+Largest connected component (LCC):
+                          Forest   Pasture    difference
+Relative LCC size          0.185     0.145         0.040
+Clustering coefficient     0.572     0.567         0.005
+Modularity                 0.459     0.431         0.029
+Positive edge percentage 100.000    33.962        66.038
+Edge density               0.156     0.131         0.026
+Natural connectivity       0.056     0.051         0.005
+Vertex connectivity        1.000     1.000         0.000
+Edge connectivity          1.000     1.000         0.000
+Average dissimilarity*     0.609     0.735         0.127
+Average path length**      3.204     2.780         0.425
+
+Whole network:
+                          Forest   Pasture    difference
+Number of components     160.000   147.000        13.000
+Clustering coefficient     0.538     0.614         0.076
+Modularity                 0.492     0.642         0.150
+Positive edge percentage 100.000    69.027        30.973
+Edge density               0.005     0.006         0.000
+Natural connectivity       0.006     0.006         0.000
+-----
+ *: Dissimilarity = 1 - edge weight
+**: Path length = Units with average dissimilarity
+
+______________________________
+Jaccard index (similarity betw. sets of most central nodes)
+```````````````````````````````````````````````````````````
+                    Jacc   P(<=Jacc)     P(>=Jacc)   
+degree             0.000    0.000134 ***    1.0000   
+betweenness centr. 0.000    0.017342 *      1.0000   
+closeness centr.   0.048    0.002306 **     0.9998   
+eigenvec. centr.   0.000    0.000451 ***    1.0000   
+hub taxa           0.000    0.087791 .      1.0000   
+-----
+Jaccard index in [0,1] (1 indicates perfect agreement)
+
+______________________________
+Adjusted Rand index (similarity betw. clusterings)
+``````````````````````````````````````````````````
+        wholeNet       LCC
+ARI        0.037     0.221
+p-value    0.551     0.000
+-----
+ARI in [-1,1] with ARI=1: perfect agreement betw. clusterings
+                   ARI=0: expected for two random clusterings
+p-value: permutation test (n=1000) with null hypothesis ARI=0
+
+______________________________
+Graphlet Correlation Distance
+`````````````````````````````
+    wholeNet       LCC
+GCD    1.014     3.027
+-----
+GCD >= 0 (GCD=0 indicates perfect agreement between GCMs)
+
+______________________________
+Centrality measures
+- In decreasing order
+- Centrality of disconnected components is zero
+````````````````````````````````````````````````
+Degree (normalized):
+                  Forest Pasture abs.diff.
+Anaerolineaceae    0.060       0     0.060
+Nitrosomonadaceae  0.055       0     0.055
+Planococcaceae     0.050       0     0.050
+Acidimicrobiaceae  0.050       0     0.050
+Lentimicrobiaceae  0.050       0     0.050
+
+Betweenness centrality (normalized):
+                  Forest Pasture abs.diff.
+Polyangiaceae      0.060   0.640     0.580
+Chitinophagaceae1  0.000   0.516     0.516
+Nocardiaceae       0.421   0.000     0.421
+Nitrosomonadaceae  0.265   0.000     0.265
+Isosphaeraceae     0.229   0.000     0.229
+
+Closeness centrality (normalized):
+                    Forest Pasture abs.diff.
+Pseudonocardiaceae   0.000   0.672     0.672
+Thermaceae           0.000   0.656     0.656
+Halanaerobiaceae     0.000   0.656     0.656
+Geodermatophilaceae  0.000   0.627     0.627
+Anaerolineaceae      0.558   0.000     0.558
+
+Eigenvector centrality (normalized):
+                   Forest Pasture abs.diff.
+Anaerolineaceae     1.000   0.000     1.000
+Pseudonocardiaceae  0.000   1.000     1.000
+Thermaceae          0.000   0.975     0.975
+Halanaerobiaceae    0.000   0.975     0.975
+Methylocystaceae    0.911   0.000     0.911
+
+_________________________________________________________
+Significance codes: ***: 0.001, **: 0.01, *: 0.05, .: 0.1

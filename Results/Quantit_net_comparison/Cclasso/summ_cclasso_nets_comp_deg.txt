@@ -1,0 +1,111 @@
+
+Comparison of Network Properties
+----------------------------------
+CALL: 
+netCompare(x = props_cclasso_nets, permTest = TRUE, nPerm = 100, 
+    adjust = "adaptBH", cores = 12, seed = 123, storeAssoPerm = TRUE, 
+    fileStoreAssoPerm = "Results/Quantit_net_comparison/Cclasso/assoPerm_cclasso", 
+    storeCountsPerm = TRUE, fileStoreCountsPerm = c("Results/Quantit_net_comparison/Cclasso/countsPerm1_cclasso", 
+        "Results/Quantit_net_comparison/Cclasso/countsPerm2_cclasso"))
+
+______________________________
+Global network properties
+`````````````````````````
+Largest connected component (LCC):
+                          Forest   Pasture    abs.diff.     p-value    
+Relative LCC size          0.185     0.145        0.040    0.960396    
+Clustering coefficient     0.572     0.567        0.005    0.980198    
+Modularity                 0.459     0.431        0.029    0.891089    
+Positive edge percentage 100.000    33.962       66.038    0.049505 *  
+Edge density               0.156     0.131        0.026    0.831683    
+Natural connectivity       0.056     0.051        0.005    0.980198    
+Vertex connectivity        1.000     1.000        0.000    1.000000    
+Edge connectivity          1.000     1.000        0.000    1.000000    
+Average dissimilarity*     0.609     0.735        0.127    0.049505 *  
+Average path length**      3.204     2.780        0.425    0.762376    
+
+Whole network:
+                          Forest   Pasture    abs.diff.     p-value    
+Number of components     160.000   147.000       13.000    0.950495    
+Clustering coefficient     0.538     0.614        0.076    0.891089    
+Modularity                 0.492     0.642        0.150    0.564356    
+Positive edge percentage 100.000    69.027       30.973    0.049505 *  
+Edge density               0.005     0.006        0.000    1.000000    
+Natural connectivity       0.006     0.006        0.000    0.871287    
+-----
+p-values: one-tailed test with null hypothesis diff=0
+ *: Dissimilarity = 1 - edge weight
+**: Path length = Units with average dissimilarity
+
+______________________________
+Jaccard index (similarity betw. sets of most central nodes)
+```````````````````````````````````````````````````````````
+                    Jacc   P(<=Jacc)     P(>=Jacc)   
+degree             0.034    0.000121 ***  0.999992   
+betweenness centr. 0.067    0.019411 *    0.997716   
+closeness centr.   0.067    0.019411 *    0.997716   
+eigenvec. centr.   0.000    0.000012 ***  1.000000   
+hub taxa           0.000    0.058528 .    1.000000   
+-----
+Jaccard index in [0,1] (1 indicates perfect agreement)
+
+______________________________
+Adjusted Rand index (similarity betw. clusterings)
+``````````````````````````````````````````````````
+        wholeNet       LCC
+ARI        0.037     0.221
+p-value    0.552     0.000
+-----
+ARI in [-1,1] with ARI=1: perfect agreement betw. clusterings
+                   ARI=0: expected for two random clusterings
+p-value: permutation test (n=1000) with null hypothesis ARI=0
+
+______________________________
+Graphlet Correlation Distance
+`````````````````````````````
+        wholeNet         LCC  
+GCD     1.014000    3.027000  
+p-value 0.980198    0.940594  
+-----
+GCD >= 0 (GCD=0 indicates perfect agreement between GCMs)
+p-value: permutation test with null hypothesis GCD=0
+
+______________________________
+Centrality measures
+- In decreasing order
+- Computed for the whole network
+````````````````````````````````````
+Degree (normalized):
+                        Forest Pasture abs.diff. adj.p-value  
+Planococcaceae            0.05       0      0.05    0.999697  
+Acidimicrobiaceae         0.05       0      0.05    0.999697  
+Lentimicrobiaceae         0.05       0      0.05    0.999697  
+Peptostreptococcaceae     0.05       0      0.05    0.999697  
+Thermoanaerobacteraceae   0.05       0      0.05    0.999697  
+
+Betweenness centrality (normalized):
+                  Forest Pasture abs.diff. adj.p-value  
+Nocardiaceae       0.013   0.000     0.013    0.278450  
+Polyangiaceae      0.002   0.012     0.010    0.278450  
+Chitinophagaceae1  0.000   0.010     0.010    0.984319  
+Nitrosomonadaceae  0.008   0.000     0.008    0.984319  
+Isosphaeraceae     0.007   0.000     0.007    0.984319  
+
+Closeness centrality (normalized):
+                               Forest Pasture abs.diff. adj.p-value  
+Spirochaetaceae1                0.093       0     0.093     0.99487  
+Lentimicrobiaceae               0.091       0     0.091     0.99487  
+Peptostreptococcaceae           0.091       0     0.091     0.99487  
+Methylocystaceae                0.091       0     0.091     0.99487  
+Verrucomicrobia_subdivision_33  0.091       0     0.091     0.99487  
+
+Eigenvector centrality (normalized):
+                   Forest Pasture abs.diff. adj.p-value  
+Pseudonocardiaceae  0.000   1.000     1.000    0.393890  
+Thermaceae          0.000   0.975     0.975    0.393890  
+Halanaerobiaceae    0.000   0.975     0.975    0.393890  
+Anaerolineaceae     1.000   0.049     0.951    0.994571  
+Methylocystaceae    0.911   0.000     0.911    0.994571  
+
+_________________________________________________________
+Significance codes: ***: 0.001, **: 0.01, *: 0.05, .: 0.1
